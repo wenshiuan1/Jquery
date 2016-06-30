@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sample - DOM</title>
+        <style>
+            .box {
+                width: 38px;
+                height: 38px;
+                border: 1px solid black;
+                float: left;
+                margin: 5px;
+                transition: 0.5s;
+            }
+
+            .clear {
+                clear: both;
+            }
+
+            #light {
+                background-color: red;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var nex=$('#next'),pre=$('#prev');
+                var firstlight=$("#light");
+               
+
+              
+                function jump(){
+                    var light=$("#light");
+                    if(light.next().hasClass('box')){
+                    light.next().attr("id","light");
+                    light.removeAttr("id");
+                    }
+                    else{
+                     firstlight.attr("id","light");
+                     light.removeAttr("id");  
+                    }
+                }
+                
+                setInterval(jump,500);
+          
+
+
+     
+
+            })
+        </script>
+    </head>
+    <body>
+        <div class="box" id="light"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="clear"></div>
+        <button type="button" id="prev">Prev</button> 
+        <button type="button" id="next">Next</button>
+    </body>
+</html>
